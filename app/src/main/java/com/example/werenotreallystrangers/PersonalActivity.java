@@ -32,23 +32,12 @@ public class PersonalActivity extends AppCompatActivity {
 
     //choose a random question in the list
     public void randomQuestionView (View view) {
-        Random random = new Random();
-        int randomQuestion = random.nextInt(personalQuestions.size()-1);
+            Random random = new Random();
+            int randomQuestion = random.nextInt(personalQuestions.size());
 
-        Log.i("Random Number: ", String.valueOf(randomQuestion));
-        Log.i("Current Index: ", String.valueOf(currentIndex[0]));
-
-        //while the randomQuestion is equal to currentIndex[0] it will change it to never show the same question
-        while (currentIndex[0] == randomQuestion){
-            randomQuestion = random.nextInt(personalQuestions.size());
-        }
-
-        Log.i("Random Number (after while()): ", String.valueOf(randomQuestion));
-        Log.i("space", "");
-
-        currentIndex[0] = randomQuestion;
-        arrayAdapter.setPosition(currentIndex[0]);
-        arrayAdapter.notifyDataSetChanged();
+            currentIndex[0] = randomQuestion;
+            arrayAdapter.setPosition(currentIndex[0]);
+            arrayAdapter.notifyDataSetChanged();
     }
 
     @Override
