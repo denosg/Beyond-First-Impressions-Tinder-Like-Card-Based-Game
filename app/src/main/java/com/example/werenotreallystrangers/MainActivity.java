@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
     Intent listIntent;
 
+    Intent personalIntent;
+
     public void levelOneView (View view) {
         Log.i("Button click", "True");
 
@@ -75,7 +77,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
     }
 
     public void personalQuestionsView (View view) {
+        Log.i("Button click", "True");
 
+        titleText = "Personal Questions";
+
+        //luminous yellow
+        cardColorBackground = "#FFFF00";
+
+        personalIntent.putExtra("cardColorBackground", cardColorBackground);
+        personalIntent.putExtra("titleText", titleText);
+
+        startActivity(personalIntent);
     }
 
     @Override
@@ -83,13 +95,13 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         //no dark mode access (the app is already dark)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //set the screen orientation to portrait all the time
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        personalIntent = new Intent(getApplicationContext(), PersonalActivity.class);
 
         listIntent = new Intent(getApplicationContext(), LevelsActivity.class);
 
