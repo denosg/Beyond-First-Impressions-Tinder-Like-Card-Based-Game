@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LevelsActivity"
+    android:background="@color/black"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/aleo_light"
+            android:text="Title Text"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="60dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+        <com.lorentzos.flingswipe.SwipeFlingAdapterView
+            app:rotation_degrees="15"
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:SwipeFlingStyle="@layout/details">
+
+        </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+
+    <include layout="@layout/details"
+        android:visibility="gone"></include>
+
+    <Button
+        android:onClick="randomQuestionView"
+        android:id="@+id/randomButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:textAllCaps="false"
+        android:background="@drawable/random_button_click_state"
+        android:textSize="17sp"
+        android:elevation="20dp"
+        android:text="random" />
+
+</LinearLayout>
