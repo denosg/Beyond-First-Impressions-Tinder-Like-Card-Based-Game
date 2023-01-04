@@ -8,10 +8,6 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         titleText = "Personal Questions";
 
         //luminous yellow
-        cardColorBackground = "#FFFF00";
+        cardColorBackground = "#53522A";
 
         personalIntent.putExtra("cardColorBackground", cardColorBackground);
         personalIntent.putExtra("titleText", titleText);
