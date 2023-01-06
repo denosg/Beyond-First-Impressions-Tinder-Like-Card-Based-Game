@@ -112,12 +112,14 @@ public class LevelsActivity extends AppCompatActivity implements Serializable {
         swipeFlingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
+                //gets the index of the card shown
+                itemPosition = currentIndex[0];
                //Copies the text on the card when clicked
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Card Text", questionsList.get(itemPosition));
                 clipboard.setPrimaryClip(clip);
-
-                Toast.makeText(LevelsActivity.this, "Text copied !", Toast.LENGTH_SHORT).show();
+                //The phone already shows that the content has been saved in the clipboard
+                //Toast.makeText(LevelsActivity.this, "Text copied !", Toast.LENGTH_SHORT).show();
             }
         });
     }
