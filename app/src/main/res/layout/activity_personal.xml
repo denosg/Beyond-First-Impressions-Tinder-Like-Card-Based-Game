@@ -55,4 +55,17 @@
         android:elevation="20dp"
         android:text="random" />
 
+    <Button
+        android:onClick="manageListView"
+        android:id="@+id/manageListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="60dp"
+        android:textAllCaps="false"
+        android:background="@drawable/manage_list_rounded"
+        android:textSize="17sp"
+        android:elevation="20dp"
+        android:text="manage list" />
+
 </LinearLayout>

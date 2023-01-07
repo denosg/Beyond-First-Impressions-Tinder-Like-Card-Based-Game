@@ -9,11 +9,9 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -24,9 +22,9 @@ public class PersonalActivity extends AppCompatActivity {
 
     Button randomButton;
 
-    MyCustomAdapter arrayAdapter;
+    static MyCustomAdapter arrayAdapter;
 
-    ArrayList<String> personalQuestions;
+    static ArrayList<String> personalQuestions;
 
     int[] currentIndex = {0};
 
@@ -40,6 +38,11 @@ public class PersonalActivity extends AppCompatActivity {
             arrayAdapter.notifyDataSetChanged();
     }
 
+    public void manageListView (View view) {
+        Intent intent = new Intent(getApplicationContext(), ListEditorActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +53,6 @@ public class PersonalActivity extends AppCompatActivity {
 
         personalQuestions = new ArrayList<String>();
         personalQuestions.add("Your questions will show here");
-
-        //set the screen orientation to portrait all the time
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //find randomButton in levelsActivity
         randomButton = findViewById(R.id.randomButton);
@@ -112,12 +112,14 @@ public class PersonalActivity extends AppCompatActivity {
         swipeFlingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
+                //gets the index of the card shown
+                itemPosition = currentIndex[0];
                 //Copies the text on the card when clicked
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Card Text", personalQuestions.get(itemPosition));
                 clipboard.setPrimaryClip(clip);
-
-                Toast.makeText(PersonalActivity.this, "Text copied !", Toast.LENGTH_SHORT).show();
+                //The phone already shows that the content has been saved in the clipboard
+                //Toast.makeText(LevelsActivity.this, "Text copied !", Toast.LENGTH_SHORT).show();
             }
         });
     }
