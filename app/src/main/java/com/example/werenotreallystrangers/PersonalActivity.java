@@ -6,6 +6,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,15 +17,16 @@ import android.widget.TextView;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 public class PersonalActivity extends AppCompatActivity {
 
-    Button randomButton;
+    SharedPreferences sharedPreferences;
 
     static MyCustomAdapter arrayAdapter;
 
-    static ArrayList<String> personalQuestions;
+    static ArrayList<String> personalQuestions = new ArrayList<>();
 
     int[] currentIndex = {0};
 
@@ -51,11 +53,15 @@ public class PersonalActivity extends AppCompatActivity {
         //set the screen orientation to portrait all the time
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        personalQuestions = new ArrayList<String>();
-        personalQuestions.add("Your questions will show here");
+        sharedPreferences = getApplicationContext().getSharedPreferences("com.example.werenotreallystrangers", Context.MODE_PRIVATE);
 
-        //find randomButton in levelsActivity
-        randomButton = findViewById(R.id.randomButton);
+        HashSet<String> questionsSet = (HashSet<String>) sharedPreferences.getStringSet("personalQuestions", null);
+
+        if (questionsSet == null){
+            personalQuestions.add("Your questions will show here");
+        }else{
+            personalQuestions = new ArrayList<>(questionsSet);
+        }
 
         Intent intent = getIntent();
 
