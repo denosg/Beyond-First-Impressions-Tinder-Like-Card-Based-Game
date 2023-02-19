@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:fontFamily="@font/aleo_light"
-        android:text="We're Not Really Strangers"
+        android:text="Beyond First Impressions"
         android:textColor="@color/white"
         android:textSize="24dp"
         android:textStyle="bold"

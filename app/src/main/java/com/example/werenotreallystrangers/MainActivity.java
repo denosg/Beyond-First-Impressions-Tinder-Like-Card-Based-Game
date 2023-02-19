@@ -12,9 +12,7 @@ import android.view.View;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/*TODO -make personalQuestionsView() work. It should open a new activity where you can add and save your own personal questions in the app
-  TODO -make the cards shareable to insta story / snapchat (like spotify does it). It probably saves it as a picture and thats how the app (insta/ snap) receives it to share
- */
+//TODO -make the cards shareable to insta story / snapchat (like spotify does it). It probably saves it as a picture and thats how the app (insta/ snap) receives it to share
 
 public class MainActivity extends AppCompatActivity implements Serializable {
 
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
 
         titleText = "Personal Questions";
 
-        //luminous yellow
+        //kinda_green
         cardColorBackground = "#53522A";
 
         personalIntent.putExtra("cardColorBackground", cardColorBackground);
