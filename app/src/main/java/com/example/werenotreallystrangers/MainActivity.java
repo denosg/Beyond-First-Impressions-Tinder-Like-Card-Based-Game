@@ -89,17 +89,17 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //set the screen orientation to portrait all the time
+        //Set the screen orientation to portrait all the time
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //no dark mode access (the app is already dark)
+        //No dark mode access (the app is already dark)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         personalIntent = new Intent(getApplicationContext(), PersonalActivity.class);
 
         listIntent = new Intent(getApplicationContext(), LevelsActivity.class);
 
-        //level one questions
+        //Level one questions
         levelOne.add("What do you think is the hardest part of what I do for a living ?");
         levelOne.add("What's the first thing you noticed about me ?");
         levelOne.add("What is the one song that would describe me ?");
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         levelOne.add("What's your favorite song lyric that comes to your mind from the top of your head ?");
         levelOne.add("Write down your number one goal for the next month. Compare.");
 
-        //level two questions
+        //Level two questions
         levelTwo.add("What's been your happiest memory this past year ?");
         levelTwo.add("Have you changed your mind about anything recently ?");
         levelTwo.add("What has been your earliest recollection of happiness ?");
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         levelTwo.add("Write down the three most important things to you in a relationship (30 sec) Compare.");
         levelTwo.add("Draw your current mood. Compare.");
 
-        //level three questions
+        //Level three questions
         levelThree.add("Based on what you learned about me what would you recommend I read ?");
         levelThree.add("What about me surprised you ?");
         levelThree.add("Based on what you know about me, do you have a movie/show recommendation?");

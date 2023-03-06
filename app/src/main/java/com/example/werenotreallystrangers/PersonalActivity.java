@@ -11,7 +11,6 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -30,7 +29,7 @@ public class PersonalActivity extends AppCompatActivity {
 
     int[] currentIndex = {0};
 
-    //choose a random question in the list
+    //Choose a random question in the list
     public void randomQuestionView (View view) {
             Random random = new Random();
             int randomQuestion = random.nextInt(personalQuestions.size());
@@ -50,7 +49,7 @@ public class PersonalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
 
-        //set the screen orientation to portrait all the time
+        //Set the screen orientation to portrait all the time
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPreferences = getApplicationContext().getSharedPreferences("com.example.werenotreallystrangers", Context.MODE_PRIVATE);
@@ -65,10 +64,10 @@ public class PersonalActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        //gets the color for each level
+        //Gets the color for each level
         String cardColor = intent.getStringExtra("cardColorBackground");
 
-        //sets the title text received from MainActivity.class
+        //Sets the title text received from MainActivity.class
         String titleText = intent.getStringExtra("titleText");
         TextView titleTextView = findViewById(R.id.titleTextView);
         titleTextView.setText(titleText);
@@ -87,7 +86,7 @@ public class PersonalActivity extends AppCompatActivity {
             @Override
             public void onLeftCardExit(Object dataObject) {
                 currentIndex[0]++;
-                //if position is equal to the amount of questions (1, 2, 3, ... .size() counts from 1) in the list,it resets the position to show the first (0) card since the user swiped left
+                //If position is equal to the amount of questions (1, 2, 3, ... .size() counts from 1) in the list,it resets the position to show the first (0) card since the user swiped left
                 if (currentIndex[0] == personalQuestions.size()) {
                     currentIndex[0] = 0;
                 }
@@ -98,7 +97,7 @@ public class PersonalActivity extends AppCompatActivity {
             @Override
             public void onRightCardExit(Object dataObject) {
                 currentIndex[0]--;
-                //if position is -1 resets the position to show the last card since the user swiped right
+                //If position is -1 resets the position to show the last card since the user swiped right
                 if (currentIndex[0] == -1){
                     currentIndex[0] = personalQuestions.size()-1;
                 }
@@ -118,7 +117,7 @@ public class PersonalActivity extends AppCompatActivity {
         swipeFlingAdapterView.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                //gets the index of the card shown
+                //Gets the index of the card shown
                 itemPosition = currentIndex[0];
                 //Copies the text on the card when clicked
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);

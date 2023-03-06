@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class ListEditorActivity extends AppCompatActivity {
@@ -42,7 +41,7 @@ public class ListEditorActivity extends AppCompatActivity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                //sets the text color of the android.R.layout.simple_list_item_1 white
+                //Sets the text color of the android.R.layout.simple_list_item_1 white
                 TextView textView = (TextView) super.getView(position, convertView, parent);
                 textView.setTextColor(Color.WHITE);
                 return textView;
